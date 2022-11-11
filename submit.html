@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+      
+<head>
+    <title>
+     Drag and drop Image 
+    </title>
+      
+    <link href = 
+"https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+            rel = "stylesheet">
+      
+    <script src = 
+"https://code.jquery.com/jquery-1.10.2.js">
+    </script>
+      
+    <script src = 
+"https://code.jquery.com/ui/1.10.4/jquery-ui.js">
+    </script>
+          
+    <style>
+  
+        
+        body {
+            text-align: center;
+        }
+  
+        
+        img{
+            height: 200px;
+            width: 350px;
+        }
+  
+        
+        #imageListId
+        { 
+        margin: 0; 
+        padding: 0;
+        list-style-type: none;
+        }
+        #imageListId div
+        { 
+            margin: 0 4px 4px 4px;
+            padding: 0.4em;             
+            display: inline-block;
+        }
+  
+        
+        #outputvalues{
+        margin: 2px 2px 2px;
+        padding: 0.4em; 
+        padding-left: 1.5em;
+        width: 200px;
+        border: 2px solid dark-green; 
+        background : rgb(241, 237, 237);
+        font-weight: 700;
+        }
+        .listitemClass 
+        {
+            border: 1px solid #006400; 
+            width: 350px;     
+        }
+        .height{ 
+            height: 10px;
+        }
+    </style>
+          
+    <script>
+        $(function() {
+            $( "#imageListId" ).sortable({
+            update: function(event, ui) {
+                getIdsOfImages();
+            }       
+            });
+        });
+          
+        function getIdsOfImages() {
+            var values = [];
+            $('.listitemClass').each(function (index) {
+                values.push($(this).attr("id")
+                        .replace("imageNo", ""));
+            });
+              
+            $('#outputvalues').val(values);
+        }
+    </script>
+</head>
+      
+<body>
+    <h1 style="color:rgb(230, 13, 13)">Drag and drop Image</h1>
+      
+    
+      
+    <div class="height"></div><br>
+      
+    <div id = "imageListId">
+        <div id="imageNo1" class = "listitemClass">
+            <img src="https://www.psdstack.com/wp-content/uploads/2019/08/copyright-free-images-750x420.jpg" alt="">
+        </div>
+          
+        <div id="imageNo2" class = "listitemClass">
+            <img src="https://www.psdstack.com/wp-content/uploads/2016/10/pixabay-1.jpg" alt="">
+        </div>
+  
+        <div id="imageNo3" class = "listitemClass">
+            <img src="https://www.psdstack.com/wp-content/uploads/2016/10/morguefile-3.jpg" alt="">
+        </div>
+  
+        <div id="imageNo4" class = "listitemClass">
+            <img src="https://www.psdstack.com/wp-content/uploads/2016/10/unsplash-4.jpg" alt="">
+        </div>
+  
+        <div id="imageNo5" class = "listitemClass">
+            <img src="https://www.psdstack.com/wp-content/uploads/2016/10/stocksnap-5.jpg" alt="">
+        </div>
+  
+        <div id="imageNo6" class = "listitemClass">
+            <img src="https://www.psdstack.com/wp-content/uploads/2016/10/gratisography-6.jpg" alt="">
+        </div>
+        <div id="imageNo7" class = "listitemClass">
+            <img src="https://www.psdstack.com/wp-content/uploads/2016/10/pexels-7.jpg" alt="">
+        </div>
+        <div id="imageNo8" class = "listitemClass">
+            <img src="https://www.psdstack.com/wp-content/uploads/2016/10/negativespace-8.jpg" alt="">
+        </div>
+        
+    </div>
+          
+    <div id="outputDiv">
+        <b>Image ID : </b>
+        <input id="outputvalues" type="text" value="" />
+    </div>
+</body>
+  
+</html>
